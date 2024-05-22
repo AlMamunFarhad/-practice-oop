@@ -5,6 +5,41 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
+                            
+                            <?php 
+                             
+                            // $sql = "SELECT * FROM users WHERE id = 1";
+
+                            // $result = $database->query($sql);
+                            
+                            // $user_found = mysqli_fetch_array($result);
+
+                            //  echo $user_found['id']."<br>";
+                            //  echo $user_found['username']."<br>";
+                            //  echo $user_found['first_name']."<br>";
+                            //  echo $user_found['last_name']."<br>";
+
+
+                            // $users = new User();
+
+                            
+                            $result_set = User::found_all_users();
+                            
+                    
+
+                            while($row = mysqli_fetch_array($result_set)){
+
+                            // foreach($result as $user){
+                               echo $row['id'] ."<br>";
+                               echo $row['username']."<br>";
+                               echo $row['first_name']."<br>";
+                               echo $row['last_name']."<br>";
+}
+                            // }
+
+                               
+                             ?>
+
                             Admin
                             <small>Subheading</small>
                         </h1>
