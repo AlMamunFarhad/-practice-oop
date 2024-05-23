@@ -23,19 +23,32 @@
                             // $users = new User();
 
                             
-                            $result_set = User::found_all_users();
+                            // $result_set = User::find_by_id(1);
                             
                     
 
-                            while($row = mysqli_fetch_array($result_set)){
+                            // // while($row = mysqli_fetch_array($result_set)){
 
-                            // foreach($result as $user){
-                               echo $row['id'] ."<br>";
-                               echo $row['username']."<br>";
-                               echo $row['first_name']."<br>";
-                               echo $row['last_name']."<br>";
-}
+                            // // // foreach($result as $user){
+                            // //    echo $row['id'] ."<br>";
+                            // //    echo $row['username']."<br>";
+                            // //    echo $row['first_name']."<br>";
+                            // //    echo $row['last_name']."<br>";
+                            // // }
+                            // // // }
+
+                             $found_user = User::find_by_id(1);
+                             echo $found_user['last_name'];
+
+
+                            // $found_user = User::found_all_users();
+
+                            // echo $found_user['id'];
+
+                            // foreach($found_user as $user){
+                            //     echo $user['username'];
                             // }
+                           
 
                                
                              ?>
