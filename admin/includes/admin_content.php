@@ -37,8 +37,27 @@
                             // // }
                             // // // }
 
-                             $found_user = User::find_by_id(1);
-                             echo $found_user['last_name'];
+                           //  $found_user = User::find_by_id(1);
+                           //  $object_property = new User();
+
+                           // echo $object_property->username   =  $found_user['username'] ."<br>";
+                           // echo $object_property->password   =  $found_user['password']."<br>";
+                           // echo $object_property->first_name =  $found_user['first_name']."<br>";
+                           // echo $object_property->last_name  =  $found_user['last_name']."<br>";
+
+                             
+                           //   $found_user = User::find_by_id(1);
+
+                           //  $user_id = User::instantation($found_user);
+
+                           // echo $user_id->id;
+
+                           // echo "<br>";
+
+                            
+
+                             // $found_user = User::find_by_id(1);
+                             // echo $found_user['last_name'];
 
 
                             // $found_user = User::found_all_users();
@@ -51,10 +70,52 @@
                            
 
                                
+             
+                           //   $found_user = User::find_by_id(1);
+
+                           //  $user_id = User::instantation($found_user);
+
+                           // echo $user_id->username;
+
+                           // echo "<br>";
+
+                         // $found_all_user = User::found_all_users();
+
+                         // $user_id = User::instantation($found_all_user);
+
+                        //  while($row = mysqli_fetch_array($found_all_user)){
+
+                        // echo $row['username'] . "<br>";
+                       
+
+                        //  }
+
+                        //  foreach ($found_all_user as $all_user) {
+                             
+                        // echo $all_user['username'];
+                        // echo $all_user['password'];
+
+
+                        //  }
+
+
+
+
+                            // $found_all_user = User::found_all_users();
+                            // $all_user = User::find_this_query($found_all_user);
+
+                            // echo $all_user->username;
+
+
+
+                        
+                            echo "<br>";
+
+                               
                              ?>
 
-                            Admin
-                            <small>Subheading</small>
+                           <!--  Admin
+                            <small>Subheading</small> -->
                         </h1>
                         <ol class="breadcrumb">
                             <li>
