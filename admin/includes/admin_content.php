@@ -99,20 +99,27 @@
                         //  }
 
 
+                        // $found_all_user = User::found_all_users();
+                        // $all_user = User::find_this_query($found_all_user);
+
+                        // echo $all_user->username;
 
 
-                            // $found_all_user = User::found_all_users();
-                            // $all_user = User::find_this_query($found_all_user);
+                            
+                        $found_all_user = User::found_all_users();
 
-                            // echo $all_user->username;
+                        echo $found_all_user->id . "<br>";
+
+                        // foreach ($found_all_user as $user) {
+                            
+                        //   echo $user->username . "<br>";
+
+                        // }
 
 
-
-                        
-                            echo "<br>";
 
                                
-                             ?>
+                        ?>
 
                            <!--  Admin
                             <small>Subheading</small> -->

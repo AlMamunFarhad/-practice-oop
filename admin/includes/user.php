@@ -4,22 +4,29 @@
 class User {
 
 
-      public $id;
-      public $username;
-      public $password;
-      public $first_name;
-      public $last_name;
+       public $id;
+       public $username;
+       public $password;
+       public $first_name;
+       public $last_name;
 
 
 public static function found_all_users(){
 
-      return self::find_this_query("SELECT * FROM users");
+      
+    $found_all  = self::find_this_query("SELECT * FROM users");
+
+    return !empty($found_all) ? array_shift($found_all) : false;
 
 }
 
 public static function find_by_id($id){
          
-      return self::find_this_query("SELECT * FROM users WHERE id = {$id} LIMIT 1");
+      $the_result_array = self::find_this_query("SELECT * FROM users WHERE id = {$id} LIMIT 1");
+
+      return !empty($the_result_array) ? array_shift($the_result_array) : false;
+
+
 }
 
 public static function find_this_query($sql)
@@ -32,10 +39,9 @@ public static function find_this_query($sql)
 
         $the_object_array[] = self::instantation($row);
       }
+      
       return $the_object_array;
-
 }
-
 
 public static function instantation($the_record){
 

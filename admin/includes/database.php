@@ -3,7 +3,6 @@
 class Database {
 
   public $connection;
-  public $username;
  
 
 public function __construct(){
@@ -20,7 +19,7 @@ public function db_connection(){
 
    if ($this->connection->connect_errno) {
 
-   	die("Database Connection Failed.") . $this->connection->connect_error;
+   	die("Database Connection Failed." . $this->connection->connect_error);
    }
 }
 
