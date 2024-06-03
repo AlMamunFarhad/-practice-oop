@@ -21,8 +21,7 @@
 
             
                  <?php include("includes/sidebar.php"); ?>
-
-
+s
 
         </div>
         <!-- /.row -->
