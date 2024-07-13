@@ -12,10 +12,8 @@ class User {
 
 public static function found_all_users(){
 
-
     $found_all  = self::find_this_query("SELECT * FROM users");
     return !empty($found_all) ? array_shift($found_all) : false;
-
 }
 
 public static function find_by_id($id){
@@ -26,6 +24,7 @@ public static function find_by_id($id){
 
 public static function find_this_query($sql)
 {
+    
     global $database;
     $result_set = $database->query($sql);
     $the_object_array = array();
@@ -83,6 +82,51 @@ public static function verify_user($username, $password){
 
 
 
+// Start create method
+public function create() 
+{
+    global $database;
+    $sql = "INSERT INTO users (username, password, first_name, last_name)";
+    $sql .=" VALUES ('";
+    $sql .= $database->escape($this->username) ."', '";
+    $sql .= $database->escape($this->password) ."', '";
+    $sql .= $database->escape($this->first_name) ."', '";
+    $sql .= $database->escape($this->last_name) ."')";
+
+
+  if ($database->query($sql)) {
+      
+   $this->id = $database->the_insert_id();
+
+   return true;
+
+  }else{
+
+   return false;
+
+  }
+
+
+} // End create method
+
+// Start update method
+public function update(){ 
+
+    global $database;
+
+    $sql = "UPDATE users SET ";
+    $sql .= "username = '".$database->escape($this->username) ."', ";
+    $sql .= "password = '".$database->escape($this->password) ."', ";
+    $sql .= "first_name = '".$database->escape($this->first_name) ."', ";
+    $sql .= "last_name = '".$database->escape($this->last_name) ."' ";
+    $sql .= " WHERE id = ".$database->escape($this->id);
+
+
+    $database->query($sql);
+
+    return (mysqli_affected_rows($database->connection) == 1) ? true : false;
+
+} // End update method
 
 
 
