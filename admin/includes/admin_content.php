@@ -117,17 +117,38 @@
                         // }
 
 
-                        $create_user = User::find_by_id(43);
-                       //  $create_user = new User();
+                        // $create_user = User::find_by_id(49);
+                       
+                       // $all_users = User::find_by_id(50);
+                       // $users = User::find_this_query($all_users);
+
+                       // foreach ($all_users as $users) {
+                           // echo $all_users->username . "<br>";
+                           // echo $all_users->password . "<br>";
+
+                       // }
+
+                       // foreach($all_users as $user){
+                            
+                       // }
+                  
+
+                        // $create_user = new User();
+                        
+                 
                          
                        
-                       // $create_user->username = "Farhad";
-                       // $create_user->password = "123";
+                        // $create_user = new User();
+                        $create_user = User::find_by_id(49);
+
+                       // $create_user->username = "Farha";
+                       // $create_user->password = "12";
                        // $create_user->first_name = "mikk";
                        // $create_user->last_name = "12346789";
                        // $create_user->create();
                        // $create_user->update();
                        $create_user->delete();
+                       // $create_user->save();
 
 
 

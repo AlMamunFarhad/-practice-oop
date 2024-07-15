@@ -3,6 +3,7 @@
 
 class User {
 
+    protected static $db_table = "users";
     public $id;
     public $username;
     public $password;
@@ -12,13 +13,14 @@ class User {
 
 public static function found_all_users(){
 
-    $found_all  = self::find_this_query("SELECT * FROM users");
+    $found_all  = self::find_this_query("SELECT * FROM ".static::$db_table);
     return !empty($found_all) ? array_shift($found_all) : false;
+    // return $found_all;
 }
 
 public static function find_by_id($id){
          
-    $the_result_array = self::find_this_query("SELECT * FROM users WHERE id = {$id} LIMIT 1");
+    $the_result_array = self::find_this_query("SELECT * FROM ".static::$db_table." WHERE id = {$id} LIMIT 1");
     return !empty($the_result_array) ? array_shift($the_result_array) : false;
 }
 
@@ -69,7 +71,7 @@ public static function verify_user($username, $password){
     $username = $database->escape($username);
     $password = $database->escape($password);
 
-    $sql = "SELECT * FROM users WHERE ";
+    $sql = "SELECT * FROM ".static::$db_table." WHERE ";
     $sql .= "username = '{$username}' ";
     $sql .= "AND password = '{$password}' ";
     $sql .= "LIMIT 1";
@@ -81,12 +83,18 @@ public static function verify_user($username, $password){
 }
 
 
+public function save(){
+
+    return isset($this->id) ? $this->update() : $this->create();
+
+}
+
 
 // Start create method
 public function create() 
 {
     global $database;
-    $sql = "INSERT INTO users (username, password, first_name, last_name)";
+    $sql = "INSERT INTO ".static::$db_table." (username, password, first_name, last_name)";
     $sql .=" VALUES ('";
     $sql .= $database->escape($this->username) ."', '";
     $sql .= $database->escape($this->password) ."', '";
@@ -114,7 +122,7 @@ public function update(){
 
     global $database;
 
-    $sql = "UPDATE users SET ";
+    $sql = "UPDATE ".static::$db_table." SET ";
     $sql .= "username = '".$database->escape($this->username) ."', ";
     $sql .= "password = '".$database->escape($this->password) ."', ";
     $sql .= "first_name = '".$database->escape($this->first_name) ."', ";
@@ -133,7 +141,7 @@ public function update(){
 public function delete(){
 
    global $database;
-   $sql = "DELETE FROM users WHERE id =".$database->escape($this->id)." LIMIT 1";
+   $sql = "DELETE FROM ".static::$db_table." WHERE id =".$database->escape($this->id)." LIMIT 1";
    $database->query($sql);
    return (mysqli_affected_rows($database->connection) == 1) ? true : false;
 
