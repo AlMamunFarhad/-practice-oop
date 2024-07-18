@@ -4,6 +4,7 @@
 class User {
 
     protected static $db_table = "users";
+    protected static $db_table_fields = array("username","password","first_name","last_name");
     public $id;
     public $username;
     public $password;
@@ -63,6 +64,23 @@ private function has_the_attribute($the_attributes){
     return array_key_exists($the_attributes, $object_properties);
 }
 
+protected function properties(){
+
+   // return get_object_vars($this);
+
+    $properties = array();
+
+    foreach (self::$db_table_fields as $db_field) {
+        if (property_exists($this, $db_field)) {
+            
+            $properties[$db_field] = $this->$db_field;
+        }
+    }
+
+   return $properties;
+}
+
+
 
 
 public static function verify_user($username, $password){
@@ -93,13 +111,15 @@ public function save(){
 // Start create method
 public function create() 
 {
+    $properties = $this->properties();
+
     global $database;
-    $sql = "INSERT INTO ".static::$db_table." (username, password, first_name, last_name)";
-    $sql .=" VALUES ('";
-    $sql .= $database->escape($this->username) ."', '";
-    $sql .= $database->escape($this->password) ."', '";
-    $sql .= $database->escape($this->first_name) ."', '";
-    $sql .= $database->escape($this->last_name) ."')";
+    $sql = "INSERT INTO ".static::$db_table."(".implode(",", array_keys($properties)).")";
+    $sql .=" VALUES ('".implode("','", array_values($properties))."')";
+    // $sql .= $database->escape($this->username) ."', '";
+    // $sql .= $database->escape($this->password) ."', '";
+    // $sql .= $database->escape($this->first_name) ."', '";
+    // $sql .= $database->escape($this->last_name) ."')";
 
 
   if ($database->query($sql)) {

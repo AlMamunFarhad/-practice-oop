@@ -138,17 +138,17 @@
                  
                          
                        
-                        // $create_user = new User();
-                        $create_user = User::find_by_id(49);
+                        $create_user = new User();
+                        // $create_user = User::find_by_id(49);
 
-                       // $create_user->username = "Farha";
-                       // $create_user->password = "12";
-                       // $create_user->first_name = "mikk";
+                       $create_user->username = "Farha";
+                       $create_user->password = "12";
+                       $create_user->first_name = "mikk";
                        // $create_user->last_name = "12346789";
                        // $create_user->create();
                        // $create_user->update();
-                       $create_user->delete();
-                       // $create_user->save();
+                       // $create_user->delete();
+                       $create_user->save();
 
 
 
