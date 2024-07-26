@@ -7,7 +7,16 @@
                         <h1 class="page-header">
                             
                             <?php 
+                             echo "Welcome to admin ".$_SESSION['username'] . "<br>";
+
+                             ?>
+
+
+                            <?php
+                            
+                            
                              
+
                             // $sql = "SELECT * FROM users WHERE id = 1";
 
                             // $result = $database->query($sql);
@@ -138,23 +147,47 @@
                  
                          
                        
-                        $create_user = new User();
-                        // $create_user = User::find_by_id(49);
+                        // $create_user = new User();
+                        // $create_user = User::find_by_id(82);
 
-                       $create_user->username = "Farha";
-                       $create_user->password = "12";
-                       $create_user->first_name = "mikk";
-                       // $create_user->last_name = "12346789";
+                        // echo $create_user->username;
+                        // $create_user = User::find_by_id(53);
+
+                       // $create_user->username = "farhad";
+                       // $create_user->password = "123";
+                       // $create_user->first_name = "mik";
+                       // $create_user->last_name = "12345";
                        // $create_user->create();
                        // $create_user->update();
                        // $create_user->delete();
-                       $create_user->save();
+                       // $create_user->save();
 
 
 
+                            // $all_users = User::find_all();
+                            // echo $all_users->username;
 
 
-                               
+                             // foreach ($all_users as $user) {
+                             //     echo $user->username . "<br>";
+                             // }
+
+                             // $photos = Photo::find_by_id(1);
+
+                             // foreach ($photos as $photo) {
+                                 // echo $photos->filename;
+                             // }
+
+                           
+                            $photos = Photo::find_all();
+                            // echo $all_users->username;
+
+
+                             foreach ($photos as $photo) {
+                                 echo $photo->filename . "<br>";
+                             }
+
+                              
                         ?>
 
                            <!--  Admin

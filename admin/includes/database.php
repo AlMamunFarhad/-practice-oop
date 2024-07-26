@@ -11,7 +11,6 @@ class Database {
       $this->db_connection();
       }
 
-
       public function db_connection(){
 
       // $this->connection = mysqli_connect(DB_HOST,DB_USER,DB_PASS,DB_NAME);
@@ -24,7 +23,6 @@ class Database {
 
       }
       }
-
 
       public function query($sql){
 

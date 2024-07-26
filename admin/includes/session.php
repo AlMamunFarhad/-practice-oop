@@ -4,6 +4,7 @@ class Session {
 
     private $signed_in = false;
     public $user_id;
+    public $username;
     public $message;
     
 
@@ -70,6 +71,7 @@ class Session {
     if ($user) {
    
     $this->user_id = $_SESSION['user_id'] = $user->id;
+    $this->username = $_SESSION['username'] = $user->username;
     $this->signed_in = true;   
 
     }

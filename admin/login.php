@@ -19,6 +19,7 @@ if ($found_user) {
      
     $session->login($found_user);
     redirect("index.php");
+   
 
 }else{
 

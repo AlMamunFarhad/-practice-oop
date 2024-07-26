@@ -98,7 +98,7 @@
                     
 
                     
-                   <?php if(isset($_SESSION['user_id'])){echo $_SESSION['user_id'];}?>
+                   <?php if(isset($_SESSION['username'])){echo $_SESSION['username'];}?>
                         <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
