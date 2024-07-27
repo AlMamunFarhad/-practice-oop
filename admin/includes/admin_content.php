@@ -179,15 +179,26 @@
                              // }
 
                            
-                            $photos = Photo::find_all();
+                            // $photos = Photo::find_all();
                             // echo $all_users->username;
 
 
-                             foreach ($photos as $photo) {
-                                 echo $photo->filename . "<br>";
-                             }
+                             // foreach ($photos as $photo) {
+                             //     echo $photo->filename . "<br>";
+                             // }
 
-                              
+                          // $photo = new Photo();
+                            // $photo = Photo::find_by_id(2);
+                          
+                          // $photo->title = "Title num 3";
+                          // $photo->filename = "farhad3.jpg";
+                          // $photo->description = "This is description";
+                          // $photo->type = "jpeg";
+                          // $photo->size = "11";
+                         
+                         // $photo->save();
+
+
                         ?>
 
                            <!--  Admin

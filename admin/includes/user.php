@@ -1,7 +1,7 @@
 <?php 
 
 
-class User extends Perent_object{
+class User extends Parent_object{
 
     protected static $db_table = "users";
     protected static $db_table_fields = array("username","password","first_name","last_name");

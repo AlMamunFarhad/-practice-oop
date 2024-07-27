@@ -1,6 +1,6 @@
 <?php 
 
-class Perent_object{
+class Parent_object{
 
     
 	public static function find_all(){
