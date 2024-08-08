@@ -28,7 +28,6 @@ class Photo extends Parent_object {
 );
 
  
-
 public function set_file($file){
 
      if (empty($file) || !$file || !is_array($file)) {
@@ -38,7 +37,7 @@ public function set_file($file){
 
      }elseif ($file['error'] != 0) {
 
-         $this->error[] = $this->upload_errors_array[$file['error']];
+         $this->errors[] = $this->upload_errors_array[$file['error']];
          return false;
 
      }else{
@@ -47,12 +46,54 @@ public function set_file($file){
          $this->tmp_path = $file['tmp_name'];
          $this->type     = $file['type'];
          $this->size     = $file['size'];
+     }
+}
 
+
+
+public function save_files(){
+
+     if ($this->id) {
+         
+          $this->update();
+     }else{
+
+      if (!empty($this->errors)) {
+          
+          return false;
+      }
+       
+       if (empty($this->fileneme) || empty($this->tmp_path)) {
+
+           $this->errors[] = "The file was not available.";
+           return false;
+       }
+       
+       if (file_exists($target_path)) {
+           
+           $this->errors[] = "The file {$this->filename} already exists.";
+           return false;
+
+       }
+
+      $target_path =  SITE_ROOT.DS.'admin'.$this->upload_directory.DS.$this->filename;
+
+      if (move_uploaded_file($this->tmp_path, $target_path)) {
+          
+          if ($this->create()) {
+              
+            unset($this->tmp_path);
+            return true;
+          }
+      }else{
+        $this->errors[] = "The file directory probably dose not have permission.";
+        return false;
+      }
 
      }
 
-
 }
+
 
 
 
